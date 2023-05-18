@@ -5,13 +5,27 @@
 {% endblock %}
 
 {% block content %}
-  <h1>New Jeans!</h1>
-  <p>Name: {{ name }}</p>
-  <p>Age: {{ age }}</p>
-
-  {% if age >= 30 %}
-    <h3>Adult Type</h3>
-  {% else %}
-    <h3>Young Type</h3>
-  {% endif %}
+<h2 class="text-center">ข้อมูลประชากรทั้งหมด</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">รหัสประชากร</th>
+      <th scope="col">ชื่อประชากร</th>
+      <th scope="col">อายุ</th>
+      <th scope="col">แก้ไข</th>
+      <th scope="col">ลบ</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for person in all_person %}
+      <tr>
+        <th scope="row">{{ person.id }}</th>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td><a href="#" class="btn btn-warning">แก้ไข</a></td>
+        <td><a href="#" class="btn btn-danger">ลบ</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
