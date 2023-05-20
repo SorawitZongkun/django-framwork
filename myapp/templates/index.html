@@ -33,7 +33,7 @@
         <td>{{ person.name }}</td>
         <td>{{ person.age }}</td>
         <td>{{ person.date }}</td>
-        <td><a href="#" class="btn btn-warning">แก้ไข</a></td>
+        <td><a href="/edit/{{ person.id }}" class="btn btn-warning">แก้ไข</a></td>
         <td><a href="#" class="btn btn-danger">ลบ</a></td>
       </tr>
     {% endfor %}

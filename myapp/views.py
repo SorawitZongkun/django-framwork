@@ -36,3 +36,21 @@ def form(request):
         return redirect("/")
     else:
         return render(request, 'form.html')
+    
+def edit(request, person_id):
+    if request.method == "POST":
+        name = request.POST['name']
+        age = request.POST['age']
+
+        person = Person.objects.get(id=person_id)
+        person.name = name
+        person.age = age
+        person.save()
+        messages.success(request, "อัพเดทข้อมูลเรียบร้อยแล้ว")
+
+        # เปลี่ยนเส้นทาง
+        return redirect("/")
+    else:
+        # ดึงข้อมูลประชากรที่ต้องการแก้ไข
+        person = Person.objects.get(id=person_id)
+        return render(request, "edit.html", {"person": person})
