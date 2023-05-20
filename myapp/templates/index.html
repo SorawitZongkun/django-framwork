@@ -34,7 +34,7 @@
         <td>{{ person.age }}</td>
         <td>{{ person.date }}</td>
         <td><a href="/edit/{{ person.id }}" class="btn btn-warning">แก้ไข</a></td>
-        <td><a href="#" class="btn btn-danger">ลบ</a></td>
+        <td><a href="/delete/{{ person.id }}" class="btn btn-danger" onclick="return confirm('ต้องการลบข้อมูล {{ person.name }} หรือไม่?')">ลบ</a></td>
       </tr>
     {% endfor %}
   </tbody>

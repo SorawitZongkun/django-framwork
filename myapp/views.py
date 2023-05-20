@@ -54,3 +54,11 @@ def edit(request, person_id):
         # ดึงข้อมูลประชากรที่ต้องการแก้ไข
         person = Person.objects.get(id=person_id)
         return render(request, "edit.html", {"person": person})
+
+def delete(request, person_id):
+    person = Person.objects.get(id=person_id)
+    person.delete()
+    messages.success(request, "ลบข้อมูลเรียบร้อยแล้ว")
+
+    # เปลี่ยนเส้นทาง
+    return redirect("/")
